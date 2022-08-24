@@ -1,16 +1,17 @@
-import React from 'react'
-import GameCardDisplay from './GameCardDisplay'
+import React from 'react';
+import { Card } from "semantic-ui-react";
+import GameCardDisplay from './GameCardDisplay';
 
 function CardCollection( {gameCards} ) {
   return (
-    <div className='cards'>
+    <Card.Group itemsPerRow={6}>
         {gameCards.map((gameCard) => (
             <GameCardDisplay
                 gameCard={gameCard}
             />
             )
         )}
-    </div>
+    </Card.Group>
   )
 }
 
