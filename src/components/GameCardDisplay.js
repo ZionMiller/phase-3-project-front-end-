@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
 
 
-function GameCardDisplay( {gameCard} ) {
+function GameCardDisplay( {gameCard, handleDeleteCard} ) {
   
   const { 
     name,
@@ -14,11 +14,34 @@ function GameCardDisplay( {gameCard} ) {
   } = gameCard
   
   const updateCard = () => {
-    
+    const updateObj = {
+      name: name,
+      image_url: image_url,
+      health: health,
+      attack: attack,
+      opponentId: 1,
+      playerId: 1
+    };
+    fetch(`http://localhost:9292/cards${id}`), {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateObj),
+    }
+    .then((res) => res.json())
+    .then(handleUpdateCard);
   }
   
-  const deleteCard = () => {
-    
+  
+  const handleDeleteCard = () => {
+    fetch(`http://localhost:9292/cards${id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => {
+        handleDeleteCard(card);
+      });
   }
 
   return (
@@ -28,8 +51,6 @@ function GameCardDisplay( {gameCard} ) {
             <Card.Header textAlign='center'>{name}</Card.Header>
             <h2>{opponentId}</h2>
             <h2>{playerId}</h2>
-            {/* <Button positive>Update Card</Button>
-            <Button negative>Delete Card</Button> */}
         <Card.Description textAlign='center'>
         <h3>Health: {health} | Attack: {attack}</h3>
         </Card.Description>

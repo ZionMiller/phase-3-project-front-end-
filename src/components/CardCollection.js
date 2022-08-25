@@ -8,6 +8,7 @@ function CardCollection( {gameCards} ) {
         {gameCards.map((gameCard) => (
             <GameCardDisplay
                 gameCard={gameCard}
+                handleDeleteCard={handleDeleteCard}
             />
             )
         )}

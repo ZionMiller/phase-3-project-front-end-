@@ -13,12 +13,25 @@ function App() {
 
     const [gameCards, setGameCards] = useState([])
     const [cardId, setCardId] = useState(0)
+    const [cards, setCard] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:9292/cards')
         .then(res => res.json())
         .then((gameCards) => setGameCards(gameCards))
     }, [])
+
+    const [formData, setFormData] = useState({
+        name: "",
+        image_url: "",
+        health: 0,
+        attack: 0
+      });
+
+    function handleDeleteCard(cardToDelete) {
+    const updatedCards = cards.filter((card) => card.id !== cardToDelete.id);
+    gameCards(updatedCards);
+    }
 
     return (
     <div>
@@ -28,9 +41,9 @@ function App() {
             </Route>
             <Route exact path="/play-game" element={<PlayGame />}>
             </Route>
-            <Route path='/the-deck' element={<CardCollection gameCards={gameCards} />}>
+            <Route path='/the-deck' element={<CardCollection gameCards={gameCards} handleDeleteCard={handleDeleteCard}/>}>
             </Route>
-            <Route path='/add-card' element={<NewCardForm />} >
+            <Route path='/add-card' element={<NewCardForm formData={formData} setFormData={setFormData}/>} >
             </Route>
             <Route path='/about' element={<About />}>
             </Route>

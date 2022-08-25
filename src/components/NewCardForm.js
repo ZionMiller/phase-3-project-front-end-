@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import { Button, Form, Menu, Dropdown } from 'semantic-ui-react'
 
-const NewCardForm = ({ cardID }) => {
-  const [form, setForm] = useState({
-    name: "",
-    image_url: "",
-    health: 0,
-    attack: 0
-  });
+const NewCardForm = ({ formData, setFormData, cardID }) => {
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setForm({ ...form, [e.target]: e.target.value });
-  };
+  const [newName, setNewName] = useState("");
+  const [newImage, setNewImage] = useState("");
+  const [newHealth, setNewHealth] = useState(0)
+  const [newAttack, setNewAttack] = useState(0);
+  
+  const newCard = {
+    name: newName,
+    image: newImage,
+    health: newHealth,
+    attack: newAttack
+  }
+  console.log(newCard)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setForm(form);
+  const handleSubmit = () => {
+    setFormData(formData);
     const reqObj = {
       method: "POST",
       headers: {
         "content-type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(
-        form
-      ),
+      body: JSON.stringify(newCard),
     };
     fetch("http://localhost:9292/cards", reqObj)
       .then((res) => res.json())
-      .then((form) => setForm(form));
+      .then((formData) => setFormData(formData));
   };
 
   return (
@@ -37,35 +36,30 @@ const NewCardForm = ({ cardID }) => {
     <Form.Field>
         <label>Name</label>
           <input placeholder='First Name' 
-          value={form.name}
-          onChange={handleChange}
+          onChange={(e) => setNewName(e.target.value)}
         />
       </Form.Field>
       <Form.Field>
         <label>Image</label>
           <input placeholder='place card image URL here' 
-          value={form.image_url}
-          onChange={handleChange}
+          type="text"
+          onChange={(e) => setNewImage(e.target.value)}
           />
       </Form.Field>
       <Form.Field>
         {/* <select name="health" */}
-        <label>Health</label>
-          <input placeholder='Card Health' 
-            value={form.health}  
-            onChange={handleChange}   
+        <label>Health Choose 2-8</label>
+          <input placeholder='Card Health'  
+            onChange={(e) => setNewHealth(e.target.value)}   
           />
       </Form.Field>
       <Form.Field>
-      <label>Attack</label>
+      <label>Attack Choose 2-6</label>
         <input placeholder='Attack' 
-          type="integer"
-          attack="attack"
-          value={form.attack}
-          onChange={handleChange} 
+          onChange={(e) => setNewAttack(e.target.value)} 
         />
       </Form.Field>
-      <Button type='submit' onclick={handleSubmit}>Submit</Button>
+      <Button type='submit' onClick={handleSubmit}>Submit</Button>
       </Form>
   );
 };
