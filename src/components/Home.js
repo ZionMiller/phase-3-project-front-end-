@@ -5,6 +5,7 @@ function Home() {
   return (
     <div className='homeCard'>
       <h1 id="welcome-to">Welcome to our P3 project</h1>
+      <img src="https://imgur.com/2Kt6PLo" />
     </div>
   )
 }

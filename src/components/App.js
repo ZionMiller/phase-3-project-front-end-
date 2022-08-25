@@ -5,12 +5,14 @@ import Home from "./Home"
 import About from "./About"
 import NewCardForm from "./NewCardForm"
 import CardCollection from "./CardCollection"
+import PlayGame from "./PlayGame";
 
 
 function App() {
 // lsof -i -sTCP:LISTEN
 
     const [gameCards, setGameCards] = useState([])
+    const [cardId, setCardId] = useState(0)
 
     useEffect(() => {
         fetch('http://localhost:9292/cards')
@@ -23,6 +25,8 @@ function App() {
         <NavBar />
         <Routes>
             <Route exact path="/" element={<Home />}>
+            </Route>
+            <Route exact path="/play-game" element={<PlayGame />}>
             </Route>
             <Route path='/the-deck' element={<CardCollection gameCards={gameCards} />}>
             </Route>

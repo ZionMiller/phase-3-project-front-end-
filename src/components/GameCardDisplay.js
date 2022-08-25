@@ -14,15 +14,15 @@ function GameCardDisplay( {gameCard} ) {
   
   return (
     <Card className="Card">
-        <Image src={image_url}  wrapped ui={false} />
+        <Image src={image_url}  height={180} />
         <Card.Content>
-            <Card.Header>{name}</Card.Header>
+            <Card.Header textAlign='center'>{name}</Card.Header>
             <h2>{opponentId}</h2>
             <h2>{playerId}</h2>
             {/* <Button positive>Update Card</Button>
             <Button negative>Delete Card</Button> */}
-        <Card.Description>
-        <h3>Health: {health} | Attack: {attack}</h3><strong>best friends</strong>
+        <Card.Description textAlign='center'>
+        <h3>Health: {health} | Attack: {attack}</h3>
         </Card.Description>
         </Card.Content>
         <Card.Content extra>

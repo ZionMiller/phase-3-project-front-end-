@@ -13,6 +13,11 @@ function NavBar(){
             </Link>
         </Menu.Item>
         <Menu.Item>
+            <Link to='/play-game'>
+                Play Game
+            </Link>
+        </Menu.Item>
+        <Menu.Item>
             <Link to='/the-deck'>
                 The Deck
             </Link>

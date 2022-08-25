@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form, Menu, Dropdown } from 'semantic-ui-react'
 
-const options = [
-  { key: 1, text: 'Choice 1', value: 1 },
-  { key: 2, text: 'Choice 2', value: 2 },
-  { key: 3, text: 'Choice 3', value: 3 },
-]
-
-const NewCardForm = () => {
-  const [form, setForm] = useState({});
+const NewCardForm = ({ cardID }) => {
+  const [form, setForm] = useState({
+    name: "",
+    image_url: "",
+    health: 0,
+    attack: 0
+  });
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -22,9 +21,16 @@ const NewCardForm = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        name: form.name,
+        image_url: form.image_url,
+        health: form.health,
+        attack: form.attack,
+        // opponent_id: opponent_id,
+        // player_id: player_id
+      }),
     };
-    fetch("http://localhost:9292/cards")
+    fetch("http://localhost:9292/cards", reqObj)
       .then((res) => res.json())
       .then((form) => setForm(form));
   };
@@ -61,7 +67,7 @@ const NewCardForm = () => {
           onChange={handleChange} 
         />
       </Form.Field>
-      <Button type='submit'>Submit</Button>
+      <Button type='submit' onclick={handleSubmit}>Submit</Button>
       </Form>
   );
 };
