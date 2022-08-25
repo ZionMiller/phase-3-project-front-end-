@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 function GameCardDisplay( {gameCard} ) {
   
@@ -14,10 +14,9 @@ function GameCardDisplay( {gameCard} ) {
   
   return (
     <Card className="Card">
+        <Image src={image_url}  wrapped ui={false} />
         <Card.Content>
-            <div>GameCardDisplay</div>
-            <h2>{name}</h2>
-            <img src={image_url} alt="Card"/>
+            <Card.Header>{name}</Card.Header>
             <h2>{health}</h2>
             <h2>{attack}</h2>
             <h2>{opponentId}</h2>

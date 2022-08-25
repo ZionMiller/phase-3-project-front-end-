@@ -1,31 +1,31 @@
 import React from "react";
 import { Menu } from 'semantic-ui-react';
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar(){
 // play, add-card, about
     return (
     <Menu className='menu'>
         <Menu.Item>
-            <NavLink to='/'>
+            <Link to='/'>
                 Home
-            </NavLink>
+            </Link>
         </Menu.Item>
         <Menu.Item>
-            <NavLink to='/play'>
+            <Link to='/play'>
                 Play
-            </NavLink>
+            </Link>
         </Menu.Item>
         <Menu.Item>
-            <NavLink to='/add-card'>
+            <Link to='/add-card'>
                 Add Card
-            </NavLink>
+            </Link>
         </Menu.Item>
         <Menu.Item>
-            <NavLink to='/about'>
+            <Link to='/about'>
                 About
-            </NavLink>
+            </Link>
         </Menu.Item>
     </Menu>
     )

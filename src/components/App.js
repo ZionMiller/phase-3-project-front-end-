@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import NavBar from "./NavBar"
+import Home from "./Home"
+import NewCardForm from "./NewCardForm"
+
 import CardCollection from "./CardCollection"
 
 function App() {
@@ -20,13 +23,13 @@ function App() {
     <div>
         <NavBar />
         <Route exact path="/">
-            {/* <>home</> */}
+            <Home />
         </Route>
         <Route path='/play'>
             <CardCollection gameCards={gameCards}/>
         </Route>
         <Route path='/add-card'>
-            {/* add card */}
+            <NewCardForm />
         </Route>
         <Route path='/about'>
             {/* about devs */}

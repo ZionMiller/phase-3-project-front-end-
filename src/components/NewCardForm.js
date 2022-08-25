@@ -1,4 +1,4 @@
-import { useState } from "rect";
+import React, { useState } from "react";
 
 const NewCardForm = () => {
   const [form, setForm] = useState({});
