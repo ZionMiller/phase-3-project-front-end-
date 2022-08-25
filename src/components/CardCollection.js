@@ -4,7 +4,7 @@ import GameCardDisplay from './GameCardDisplay';
 
 function CardCollection( {gameCards} ) {
   return (
-    <Card.Group itemsPerRow={8}>
+    <Card.Group itemsPerRow={5}>
         {gameCards.map((gameCard) => (
             <GameCardDisplay
                 gameCard={gameCard}

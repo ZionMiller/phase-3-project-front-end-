@@ -24,7 +24,7 @@ function App() {
         <Routes>
             <Route exact path="/" element={<Home />}>
             </Route>
-            <Route path='/play' element={<CardCollection gameCards={gameCards} />}>
+            <Route path='/the-deck' element={<CardCollection gameCards={gameCards} />}>
             </Route>
             <Route path='/add-card' element={<NewCardForm />} >
             </Route>

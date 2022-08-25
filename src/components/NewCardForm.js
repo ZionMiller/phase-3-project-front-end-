@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import { Button, Form, Menu, Dropdown } from 'semantic-ui-react'
+
+const options = [
+  { key: 1, text: 'Choice 1', value: 1 },
+  { key: 2, text: 'Choice 2', value: 2 },
+  { key: 3, text: 'Choice 3', value: 3 },
+]
 
 const NewCardForm = () => {
   const [form, setForm] = useState({});
@@ -23,44 +30,39 @@ const NewCardForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
+    <Form.Field>
         <label>Name</label>
-        <input
-          type="text"
-          name="name"
+          <input placeholder='First Name' 
           value={form.name}
           onChange={handleChange}
         />
-      </form>
-      <form>
+      </Form.Field>
+      <Form.Field>
         <label>Image</label>
-        <input
-          type="img"
-          image_url="image_url"
+          <input placeholder='place card image URL here' 
           value={form.image_url}
           onChange={handleChange}
-        />
-      </form>
-      <form>
+          />
+      </Form.Field>
+      <Form.Field>
         <label>Health</label>
-        <input
-          type="integer"
-          health="health"
-          value={form.health}
-          onChange={handleChange}
-        />
-      </form>
-      <form>
-        <label>Attack</label>
-        <input
+          <select placeholder='Card Health' 
+            value={form.health}  
+            onChange={handleChange}   
+          />
+      </Form.Field>
+      <Form.Field>
+      <label>Health</label>
+        <select placeholder='Attack' 
           type="integer"
           attack="attack"
           value={form.attack}
-          onChange={handleChange}
+          onChange={handleChange} 
         />
-      </form>
-    </div>
+      </Form.Field>
+      <Button type='submit'>Submit</Button>
+      </Form>
   );
 };
 

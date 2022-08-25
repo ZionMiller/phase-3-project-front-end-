@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 
 function GameCardDisplay( {gameCard} ) {
   
@@ -17,13 +17,24 @@ function GameCardDisplay( {gameCard} ) {
         <Image src={image_url}  wrapped ui={false} />
         <Card.Content>
             <Card.Header>{name}</Card.Header>
-            <h2>Health: {health}</h2>
-            <h2>Attack: {attack}</h2>
             <h2>{opponentId}</h2>
             <h2>{playerId}</h2>
-            <button>Update Card</button>
-            <button>Delete Card</button>
+            {/* <Button positive>Update Card</Button>
+            <Button negative>Delete Card</Button> */}
+        <Card.Description>
+        <h3>Health: {health} | Attack: {attack}</h3><strong>best friends</strong>
+        </Card.Description>
         </Card.Content>
+        <Card.Content extra>
+        <div className='ui two buttons'>
+          <Button basic color='green'>
+            Update Card
+          </Button>
+          <Button basic color='red'>
+            Delete Card
+          </Button>
+        </div>
+      </Card.Content>
     </Card>
   )
 }
