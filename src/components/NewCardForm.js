@@ -16,19 +16,16 @@ const NewCardForm = ({ cardID }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setForm(form);
     const reqObj = {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        "Accept": "application/json"
       },
-      body: JSON.stringify({
-        name: form.name,
-        image_url: form.image_url,
-        health: form.health,
-        attack: form.attack,
-        // opponent_id: opponent_id,
-        // player_id: player_id
-      }),
+      body: JSON.stringify(
+        form
+      ),
     };
     fetch("http://localhost:9292/cards", reqObj)
       .then((res) => res.json())
@@ -52,15 +49,16 @@ const NewCardForm = ({ cardID }) => {
           />
       </Form.Field>
       <Form.Field>
+        {/* <select name="health" */}
         <label>Health</label>
-          <select placeholder='Card Health' 
+          <input placeholder='Card Health' 
             value={form.health}  
             onChange={handleChange}   
           />
       </Form.Field>
       <Form.Field>
-      <label>Health</label>
-        <select placeholder='Attack' 
+      <label>Attack</label>
+        <input placeholder='Attack' 
           type="integer"
           attack="attack"
           value={form.attack}

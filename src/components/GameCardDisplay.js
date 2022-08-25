@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
 
+
 function GameCardDisplay( {gameCard} ) {
   
   const { 
@@ -12,6 +13,14 @@ function GameCardDisplay( {gameCard} ) {
     playerId
   } = gameCard
   
+  const updateCard = () => {
+    
+  }
+  
+  const deleteCard = () => {
+    
+  }
+
   return (
     <Card className="Card">
         <Image src={image_url}  height={180} />
@@ -27,10 +36,10 @@ function GameCardDisplay( {gameCard} ) {
         </Card.Content>
         <Card.Content extra>
         <div className='ui two buttons'>
-          <Button basic color='green'>
+          <Button basic color='green' onClick={updateCard}>
             Update Card
           </Button>
-          <Button basic color='red'>
+          <Button basic color='red' onClick={deleteCard}>
             Delete Card
           </Button>
         </div>
