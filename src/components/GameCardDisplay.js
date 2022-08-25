@@ -17,10 +17,12 @@ function GameCardDisplay( {gameCard} ) {
         <Image src={image_url}  wrapped ui={false} />
         <Card.Content>
             <Card.Header>{name}</Card.Header>
-            <h2>{health}</h2>
-            <h2>{attack}</h2>
+            <h2>Health: {health}</h2>
+            <h2>Attack: {attack}</h2>
             <h2>{opponentId}</h2>
             <h2>{playerId}</h2>
+            <button>Update Card</button>
+            <button>Delete Card</button>
         </Card.Content>
     </Card>
   )

@@ -4,7 +4,6 @@ import NavBar from "./NavBar"
 import Home from "./Home"
 import About from "./About"
 import NewCardForm from "./NewCardForm"
-
 import CardCollection from "./CardCollection"
 
 function App() {
@@ -17,8 +16,6 @@ function App() {
         .then(res => res.json())
         .then((gameCards) => setGameCards(gameCards))
     }, [])
-
-    console.log(gameCards)
 
     return (
     <div>
