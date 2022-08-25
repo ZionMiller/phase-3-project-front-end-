@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import NavBar from "./NavBar"
 import Home from "./Home"
+import About from "./About"
 import NewCardForm from "./NewCardForm"
 
 import CardCollection from "./CardCollection"
@@ -32,7 +33,7 @@ function App() {
             <NewCardForm />
         </Route>
         <Route path='/about'>
-            {/* about devs */}
+            <About />
         </Route>
     </div>
     )
