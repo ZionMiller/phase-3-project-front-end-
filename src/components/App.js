@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar"
 import Home from "./Home"
 import About from "./About"
 import NewCardForm from "./NewCardForm"
 import CardCollection from "./CardCollection"
+
 
 function App() {
 // lsof -i -sTCP:LISTEN
@@ -20,18 +21,16 @@ function App() {
     return (
     <div>
         <NavBar />
-        <Route exact path="/">
-            <Home />
-        </Route>
-        <Route path='/play'>
-            <CardCollection gameCards={gameCards}/>
-        </Route>
-        <Route path='/add-card'>
-            <NewCardForm />
-        </Route>
-        <Route path='/about'>
-            <About />
-        </Route>
+        <Routes>
+            <Route exact path="/" element={<Home />}>
+            </Route>
+            <Route path='/play' element={<CardCollection gameCards={gameCards} />}>
+            </Route>
+            <Route path='/add-card' element={<NewCardForm />} >
+            </Route>
+            <Route path='/about' element={<About />}>
+            </Route>
+        </Routes>
     </div>
     )
 }
