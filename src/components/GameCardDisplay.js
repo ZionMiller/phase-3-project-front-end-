@@ -22,31 +22,31 @@ function GameCardDisplay( {gameCard, handleDeleteCard} ) {
       opponentId: 1,
       playerId: 1
     };
-    fetch(`http://localhost:9292/cards${id}`), {
+    fetch(`http://localhost:9292/cards/${gameCard.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updateObj),
-    }
+    })
     .then((res) => res.json())
-    .then(handleUpdateCard);
+    .then();
   }
   
   
-  const handleDeleteCard = () => {
-    fetch(`http://localhost:9292/cards${id}`, {
+  const deleteCard = () => {
+    fetch(`http://localhost:9292/cards/${gameCard.id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
       .then(() => {
-        handleDeleteCard(card);
+        handleDeleteCard(gameCard);
       });
   }
 
   return (
     <Card className="Card">
-        <Image src={image_url}  height={180} />
+        <Image src={image_url} height={180} />
         <Card.Content>
             <Card.Header textAlign='center'>{name}</Card.Header>
             <h2>{opponentId}</h2>

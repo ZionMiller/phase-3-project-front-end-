@@ -7,6 +7,12 @@ function NavBar(){
 // play, add-card, about
     return (
     <Menu className='menu'>
+        
+        <Menu.Item>
+            <Link to='/'>
+              <img className='nav-logo' src='/images/logo.png' />
+            </Link>
+        </Menu.Item>
         <Menu.Item>
             <Link to='/'>
                 Home

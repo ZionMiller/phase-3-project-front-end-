@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from "semantic-ui-react";
 import GameCardDisplay from './GameCardDisplay';
 
-function CardCollection( {gameCards} ) {
+function CardCollection( {handleDeleteCard, gameCards} ) {
   return (
     <Card.Group itemsPerRow={4}>
         {gameCards.map((gameCard) => (

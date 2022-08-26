@@ -14,7 +14,22 @@ const NewCardForm = ({ formData, setFormData, cardID }) => {
     health: newHealth,
     attack: newAttack
   }
-  console.log(newCard)
+
+  function checkNewCard(){
+    if(newCard.health > 8) {
+      setNewHealth(8)
+    }
+    else if(newCard.health < 1){
+      setNewHealth(1)
+    }
+    if(newCard.attack > 6){
+      setNewAttack(6)
+    }
+    else if(newCard.attack < 1){
+      setNewAttack(1)
+    }
+  }
+  checkNewCard();
 
   const handleSubmit = () => {
     setFormData(formData);
@@ -35,13 +50,13 @@ const NewCardForm = ({ formData, setFormData, cardID }) => {
     <Form onSubmit={handleSubmit}>
     <Form.Field>
         <label>Name</label>
-          <input placeholder='First Name' 
+          <input placeholder='Card Character Name' 
           onChange={(e) => setNewName(e.target.value)}
         />
       </Form.Field>
       <Form.Field>
         <label>Image</label>
-          <input placeholder='place card image URL here' 
+          <input placeholder='Image URL For Card' 
           type="text"
           onChange={(e) => setNewImage(e.target.value)}
           />

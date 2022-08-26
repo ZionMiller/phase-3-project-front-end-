@@ -39,7 +39,7 @@ function App() {
         <Routes>
             <Route exact path="/" element={<Home />}>
             </Route>
-            <Route exact path="/play-game" element={<PlayGame />}>
+            <Route exact path="/play-game" element={<PlayGame gameCards={gameCards}/>}>
             </Route>
             <Route path='/the-deck' element={<CardCollection gameCards={gameCards} handleDeleteCard={handleDeleteCard}/>}>
             </Route>

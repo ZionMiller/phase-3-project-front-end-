@@ -14,10 +14,10 @@ function About() {
         <Card>
           <Image src='https://www.ctvnews.ca/polopoly_fs/1.2842838.1459624452!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg' wrapped ui={false} />
           <Card.Content textAlign='center'>
-            <Card.Header>Garret Galant</Card.Header>
+            <Card.Header>Garret Gallant</Card.Header>
             <Card.Meta>Full Stack Software Engineer</Card.Meta>
             <Card.Description>
-              Garret Galant is a fullstack enggineer from Colorado.
+              Garret Gallant is a fullstack engineer from Colorado.
             </Card.Description>
             <Icon name="github"/>
             <Icon name="linkedin"/>
@@ -30,7 +30,7 @@ function About() {
             <Card.Header>Zion Miller</Card.Header>
             <Card.Meta>Full Stack Software Engineer</Card.Meta>
             <Card.Description>
-              Zion Miller is a fullstack enggineer from California.
+              Zion Miller is a fullstack engineer from California.
             </Card.Description>
             <Icon name="github"/>
             <Icon name="linkedin"/>
@@ -43,7 +43,7 @@ function About() {
             <Card.Header>Tommy Nguyen</Card.Header>
             <Card.Meta>Full Stack Software Engineer</Card.Meta>
             <Card.Description>
-              Tommy Nguyen is a fullstack enggineer from California.
+              Tommy Nguyen is a fullstack engineer from California.
             </Card.Description>
             <Icon name="github"/>
             <Icon name="linkedin"/>
