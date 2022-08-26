@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image, Grid, Icon } from "semantic-ui-react";
+import { Card, Image, Grid, Icon, Menu } from "semantic-ui-react";
 
 function About() {
   return (
@@ -23,14 +23,33 @@ function About() {
             <Card.Description>
               Garret Gallant is a fullstack engineer from Colorado.
             </Card.Description>
-            <Icon name="github" href="https://github.com/Garret-Gallant?tab=repositories"/>
-            <Icon name="linkedin" />
-            <Icon name="medium" />
+            <Menu.Item
+                href="https://github.com/Garret-Gallant"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="github" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://www.linkedin.com/in/garret-gallant/"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="linkedin" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://medium.com/@GarretGallant"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="medium" size="big" />
+                </Menu.Item>
           </Card.Content>
         </Card>
         <Card>
-          <Image
-            src="https://www.ctvnews.ca/polopoly_fs/1.2842838.1459624452!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg"
+          <img
+            height={400}
+            src="./images/zion-about.jpg"
             wrapped
             ui={false}
           />
@@ -40,15 +59,33 @@ function About() {
             <Card.Description>
               Zion Miller is a fullstack engineer from California.
             </Card.Description>
-            <Icon name="github" />
-            <Icon name="linkedin" />
-            <Icon name="medium" />
+                <Menu.Item
+                href="https://github.com/ZionMiller"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="github" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://www.linkedin.com/in/zion-miller-b15344170/"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="linkedin" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://medium.com/@zionmiller"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="medium" size="big" />
+                </Menu.Item>
           </Card.Content>
         </Card>
         <Card>
           <img
             height={400}
-            src="https://cdn.discordapp.com/attachments/1011292664479633529/1012579115490086982/unknown.png"
+            src="./images/tommy-about.png"
             wrapped
             ui={false}
           />
@@ -58,9 +95,27 @@ function About() {
             <Card.Description>
               Tommy Nguyen is a fullstack engineer from California.
             </Card.Description>
-            <Icon name="github" />
-            <Icon name="linkedin" />
-            <Icon name="medium" />
+            <Menu.Item
+                href=""
+                position="right"
+                target="_blank"
+                >
+                <Icon name="github" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://www.linkedin.com/in/tommy-nguyen-9a3b90122/"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="linkedin" size="big" />
+                </Menu.Item>
+                <Menu.Item
+                href="https://medium.com/@sixty22tommy"
+                position="right"
+                target="_blank"
+                >
+                <Icon name="medium" size="big" />
+                </Menu.Item>
           </Card.Content>
         </Card>
       </Card.Group>

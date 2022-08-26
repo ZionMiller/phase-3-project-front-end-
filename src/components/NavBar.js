@@ -1,32 +1,17 @@
 import React from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Button } from "semantic-ui-react";
 
-import { Link } from "react-router-dom";
+import { NavNavLink, NavLink } from "react-router-dom";
 
 function NavBar() {
   // play, add-card, about
   return (
-    <Menu className="menu">
-      <Menu.Item>
-        <Link to="/">
-          <img className="nav-logo" src="/images/logo.png" />
-        </Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/">Home</Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/play-game">Play Game</Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/the-deck">The Deck</Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/add-card">Add Card</Link>
-      </Menu.Item>
-      <Menu.Item>
-        <Link to="/about">About</Link>
-      </Menu.Item>
+    <Menu>
+        <NavLink to="/"><img className="nav-logo" src="/images/logo.png" /></NavLink>
+        <NavLink className='nav-button' to="/play-game">Play Game</NavLink>
+        <NavLink className='nav-button' to="/the-deck">The Deck</NavLink>
+        <NavLink className='nav-button' to="/add-card">Add Card</NavLink>
+        <NavLink className='nav-button' to="/about">About</NavLink>
     </Menu>
   );
 }
