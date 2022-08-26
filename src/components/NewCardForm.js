@@ -82,33 +82,3 @@ const NewCardForm = ({ spreadPost, formData, setFormData }) => {
 };
 
 export default NewCardForm;
-
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   alert("Your card has been added! Check 'the-deck' to view");
-  
-//   fetch("http://localhost:9292/cards", reqObj)
-//   .then((res) => res.json())
-//   .then((formData) => setFormData(formData))
-//   .then(() => {
-//     setNewName();
-//     setNewImage();
-//     setNewHealth();
-//     setNewAttack();
-//   });
-
-//   // setFormData(formData);
-//   const reqObj = {
-//     method: "POST",
-//     headers: {
-//       "content-type": "application/json",
-//       Accept: "application/json",
-//     },
-//     body: JSON.stringify({
-//       name: setNewName,
-//       image: setNewImage,
-//       health: setNewHealth,
-//       newAttack: setNewAttack,
-//     }),
-//   };
-// };

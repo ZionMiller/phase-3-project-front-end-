@@ -9,6 +9,8 @@ import PlayGame from "./PlayGame";
 
 function App() {
   const [gameCards, setGameCards] = useState([]);
+  const [playerDeck, setPlayerDeck] = useState([]);
+  const [opponentDeck, setOpponentDeck] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     image_url: "",
@@ -22,14 +24,27 @@ function App() {
       .then((gameCards) => setGameCards(gameCards));
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/player-hand")
+      .then((res) => res.json())
+      .then((playerDeck) => setPlayerDeck(playerDeck));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/opponent-hand")
+      .then((res) => res.json())
+      .then((opponentDeck) => setOpponentDeck(opponentDeck));
+  }, []);
+
   function spreadPost(newCardPost) {
     setGameCards((gameCards) => {
-      return [...gameCards, newCardPost]
+      return [...gameCards, newCardPost];
     });
-
   }
   function handleDeleteCard(cardToDelete) {
-    const updatedCards = gameCards.filter((card) => card.id !== cardToDelete.id);
+    const updatedCards = gameCards.filter(
+      (card) => card.id !== cardToDelete.id
+    );
     setGameCards(updatedCards);
   }
 
@@ -48,7 +63,7 @@ function App() {
         <Route
           exact
           path="/play-game"
-          element={<PlayGame gameCards={gameCards} />}
+          element={<PlayGame playerDeck={playerDeck} opponentDeck={opponentDeck}/>}
         ></Route>
         <Route
           path="/the-deck"
