@@ -9,10 +9,11 @@ function About() {
         <br />
       </Grid>
       <h1 id="meet-developers">Our Developers:</h1>
-      <Card.Group itemsPerRow={3}>
+      <Card.Group id='about-cards' itemsPerRow={3}>
         <Card>
-          <Image
-            src="https://www.ctvnews.ca/polopoly_fs/1.2842838.1459624452!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg"
+          <img
+            height={400}
+            src="./images/garret-about.jpg"
             wrapped
             ui={false}
           />
@@ -22,7 +23,7 @@ function About() {
             <Card.Description>
               Garret Gallant is a fullstack engineer from Colorado.
             </Card.Description>
-            <Icon name="github" />
+            <Icon name="github" href="https://github.com/Garret-Gallant?tab=repositories"/>
             <Icon name="linkedin" />
             <Icon name="medium" />
           </Card.Content>
@@ -45,8 +46,9 @@ function About() {
           </Card.Content>
         </Card>
         <Card>
-          <Image
-            src="https://www.ctvnews.ca/polopoly_fs/1.2842838.1459624452!/httpImage/image.jpg_gen/derivatives/landscape_960/image.jpg"
+          <img
+            height={400}
+            src="https://cdn.discordapp.com/attachments/1011292664479633529/1012579115490086982/unknown.png"
             wrapped
             ui={false}
           />

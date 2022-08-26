@@ -9,24 +9,6 @@ import PlayGame from "./PlayGame";
 
 function App() {
   const [gameCards, setGameCards] = useState([]);
-  const [newName, setNewName] = useState("");
-  const [newImage, setNewImage] = useState("");
-  const [newHealth, setNewHealth] = useState(0);
-  const [newAttack, setNewAttack] = useState(0);
-
-  const newCard = {
-    name: newName,
-    image: newImage,
-    health: newHealth,
-    attack: newAttack,
-  };
-
-  useEffect(() => {
-    fetch("http://localhost:9292/cards")
-      .then((res) => res.json())
-      .then((gameCards) => setGameCards(gameCards));
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     image_url: "",
@@ -34,22 +16,21 @@ function App() {
     attack: 0,
   });
 
-  function checkNewCard() {
-    if (newCard.health > 8) {
-      setNewHealth(8);
-    } else if (newCard.health < 1) {
-      setNewHealth(1);
-    }
-    if (newCard.attack > 6) {
-      setNewAttack(6);
-    } else if (newCard.attack < 1) {
-      setNewAttack(1);
-    }
-  }
+  useEffect(() => {
+    fetch("http://localhost:9292/cards")
+      .then((res) => res.json())
+      .then((gameCards) => setGameCards(gameCards));
+  }, []);
 
+  function spreadPost(newCardPost) {
+    setGameCards((gameCards) => {
+      return [...gameCards, newCardPost]
+    });
+
+  }
   function handleDeleteCard(cardToDelete) {
     const updatedCards = gameCards.filter((card) => card.id !== cardToDelete.id);
-    gameCards(updatedCards);
+    setGameCards(updatedCards);
   }
 
   function handleupdateCard(updatedCard) {
@@ -76,7 +57,6 @@ function App() {
               gameCards={gameCards}
               handleDeleteCard={handleDeleteCard}
               handleupdateCard={handleupdateCard}
-              checkNewCard={checkNewCard}
             />
           }
         ></Route>
@@ -86,16 +66,7 @@ function App() {
             <NewCardForm
               formData={formData}
               setFormData={setFormData}
-              newName={newName}
-              setNewName={setNewName}
-              newImage={newImage}
-              setNewImage={setNewImage}
-              newHealth={newHealth}
-              setNewHealth={setNewHealth}
-              newAttack={newAttack}
-              setNewAttack={setNewAttack}
-              newCard={newCard}
-              checkNewCard={checkNewCard}
+              spreadPost={spreadPost}
             />
           }
         ></Route>

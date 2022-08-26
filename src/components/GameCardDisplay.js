@@ -2,18 +2,23 @@ import React from "react";
 import { useState } from "react";
 import { Card, Image, Button, Form } from "semantic-ui-react";
 
-function GameCardDisplay( {gameCard,handleDeleteCard,handleupdateCard,checkNewCard} ) {
+function GameCardDisplay({ gameCard, handleDeleteCard, handleupdateCard }) {
   const [updateMenu, setUpdateMenu] = useState(false);
   const [newHealth, setNewHealth] = useState(1);
-
+  
   const toggleUpdateMenu = () => {
     setUpdateMenu((updateMenu) => !updateMenu);
   };
 
   const { name, image_url, health, attack, opponentId, playerId } = gameCard;
 
+  if (newHealth > 8) {
+    setNewHealth(8);
+  } else if (newHealth < 1) {
+    setNewHealth(1);
+  }
+
   const updateCard = () => {
-    
     const updateObj = {
       name: name,
       image_url: image_url,
@@ -37,11 +42,8 @@ function GameCardDisplay( {gameCard,handleDeleteCard,handleupdateCard,checkNewCa
   const deleteCard = () => {
     fetch(`http://localhost:9292/cards/${gameCard.id}`, {
       method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then(() => {
-        handleDeleteCard(gameCard);
-      });
+    });
+    handleDeleteCard(gameCard);
   };
 
   return (
@@ -71,7 +73,7 @@ function GameCardDisplay( {gameCard,handleDeleteCard,handleupdateCard,checkNewCa
             <Form.Field>
               <label>New Health Value</label>
               <input
-                placeholder="New Health For Card"
+                placeholder="New Health For Card (1-8)"
                 type="number"
                 onChange={(e) => setNewHealth(e.target.value)}
               />
