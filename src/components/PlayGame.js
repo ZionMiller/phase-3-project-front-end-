@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 
 const PlayGame = ({ gameCards }) => {
@@ -24,7 +24,7 @@ const PlayGame = ({ gameCards }) => {
     console.log(opponentDeck);
   }
 
-  return playerDeck < 0 ? (
+  return playerDeck.length <= 0 ? (
     <div className="new-game-form">
       <Form onSubmit={console.log(playerName)}>
         <Form.Field>
