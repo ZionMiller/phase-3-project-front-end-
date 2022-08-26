@@ -9,8 +9,6 @@ import PlayGame from "./PlayGame";
 
 function App() {
   const [gameCards, setGameCards] = useState([]);
-  const [cardId, setCardId] = useState(0);
-  const [cards, setCard] = useState([]);
   const [newName, setNewName] = useState("");
   const [newImage, setNewImage] = useState("");
   const [newHealth, setNewHealth] = useState(0);
@@ -50,7 +48,7 @@ function App() {
   }
 
   function handleDeleteCard(cardToDelete) {
-    const updatedCards = cards.filter((card) => card.id !== cardToDelete.id);
+    const updatedCards = gameCards.filter((card) => card.id !== cardToDelete.id);
     gameCards(updatedCards);
   }
 

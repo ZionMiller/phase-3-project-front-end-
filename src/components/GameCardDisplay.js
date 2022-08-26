@@ -2,12 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Card, Image, Button, Form } from "semantic-ui-react";
 
-function GameCardDisplay({
-  gameCard,
-  handleDeleteCard,
-  handleupdateCard,
-  checkNewCard,
-}) {
+function GameCardDisplay( {gameCard,handleDeleteCard,handleupdateCard,checkNewCard} ) {
   const [updateMenu, setUpdateMenu] = useState(false);
   const [newHealth, setNewHealth] = useState(1);
 
@@ -15,11 +10,10 @@ function GameCardDisplay({
     setUpdateMenu((updateMenu) => !updateMenu);
   };
 
-  console.log(updateMenu);
-
   const { name, image_url, health, attack, opponentId, playerId } = gameCard;
 
   const updateCard = () => {
+    
     const updateObj = {
       name: name,
       image_url: image_url,
@@ -28,6 +22,7 @@ function GameCardDisplay({
       opponentId: 1,
       playerId: 1,
     };
+
     fetch(`http://localhost:9292/cards/${gameCard.id}`, {
       method: "PATCH",
       headers: {
@@ -48,8 +43,6 @@ function GameCardDisplay({
         handleDeleteCard(gameCard);
       });
   };
-
-  checkNewCard();
 
   return (
     <Card className="Card">

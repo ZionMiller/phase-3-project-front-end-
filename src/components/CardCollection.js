@@ -9,7 +9,7 @@ function CardCollection({
   gameCards,
 }) {
   return (
-    <Card.Group itemsPerRow={4}>
+    <Card.Group itemsPerRow={6}>
       {gameCards.map((gameCard) => (
         <GameCardDisplay
           gameCard={gameCard}

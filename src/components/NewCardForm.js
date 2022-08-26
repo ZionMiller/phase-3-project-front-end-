@@ -46,14 +46,14 @@ const NewCardForm = ({
       </Form.Field>
       <Form.Field>
         {/* <select name="health" */}
-        <label>Health Choose 2-8</label>
+        <label>Health Choose 1-8</label>
         <input
           placeholder="Card Health"
           onChange={(e) => setNewHealth(e.target.value)}
         />
       </Form.Field>
       <Form.Field>
-        <label>Attack Choose 2-6</label>
+        <label>Attack Choose 1-6</label>
         <input
           placeholder="Attack"
           onChange={(e) => setNewAttack(e.target.value)}
