@@ -95,7 +95,7 @@ function About() {
               position="right"
               target="_blank"
             >
-              <Icon name="linkedin" size="big" />
+            <Icon name="linkedin" size="big" />
             </Menu.Item>
             <Menu.Item
               href="https://medium.com/@sixty22tommy"

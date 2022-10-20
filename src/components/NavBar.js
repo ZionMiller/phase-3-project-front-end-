@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, Button } from "semantic-ui-react";
 
-import { NavNavLink, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   // play, add-card, about
